@@ -1,9 +1,12 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
+@font-face{
+  font-family: arcade;
+  src: url("../media/fonts/arcade-rounded.otf") format("opentype");
+}
+
 body{
-  background-image: url('../media/bg.svg');
-  background-size: cover;
-  background-attachment: fixed;
+  background-color: black;
 }
 
 html, button, input, select, textarea,
@@ -51,4 +54,143 @@ html, button, input, select, textarea,
 
 .button-xlarge {
   font-size: 150%;
+}
+
+#page-wrap{
+  margin: 0 auto;
+  text-align: center;
+}
+
+#page-wrap > *{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#board{
+  visibility: hidden;
+  position: relative;
+  background-color: black;
+  border-radius: 3.5vh;
+  border: 3.5vh double blue;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 100vh;
+}
+
+#start{
+  max-width: 80%;
+  margin-top: 10vh;
+  background-color: white;
+  color: blue;
+  border: 2vh double blue;
+  border-radius: 2vh;
+  font-family: arcade, Times;
+  font-size: 3.5vh;  
+}
+
+#start:hover{
+  background-color: blue;
+  color: white;
+  border-color: white;  
+}
+
+.gameRow{
+  width: 100%;
+  height: 25%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  top: 0;
+  bottom: 0;
+}
+
+.gameCell{
+  width: 25%;
+  height: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-width: .25vh .125vw;
+  border-style: dashed;
+  border-color: rgba(255, 255, 255, .5);
+  border-top: none;
+  border-left: none;
+  margin: 0 auto;
+  text-align: center;
+  vertical-align: middle;
+  display: inline-block;
+  position: relative;
+}
+
+.gameCell:last-child{
+  border-right: none;
+}
+
+.gameRow:last-child .gameCell{
+  border-bottom: none;
+}
+
+.player{
+  background-color: yellow;
+  background-image: url('../media/images/pacman_mouth.png');
+  background-size: 100% 100%;
+  background-repeat: none;
+  background-origin: border-box;
+}
+
+.player.closed{
+  background-image: none;
+}
+
+.pellet{
+  background-color: white;
+  position: absolute;
+}
+
+.player, .pellet{
+  border-radius: 50%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 2px solid black;
+  // margin-left: auto;
+  // margin-right: auto;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#home, #menu{
+  visibility: hidden;
+  position: absolute;
+  min-width: 33.33%;
+  height: 33.33%;
+  top: 33.33%;
+  left: 33.33%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 2px solid white;
+  background-color: blue;
+  font-family: arcade, Times;
+  color: white;
+  font-size: 3.5vh;
+}
+
+#home{
+  visibility: visible;
+}
+
+#menuOptions > div{
+  cursor: pointer;
+}
+
+#menuOptions > div:hover{
+  color: yellow;
+}
+
+#menuOptions > div:first-letter{
+  text-decoration: underline;
+}
+
+#menuMessage, #menuOptions > div{
+  margin-top: 5vh;
 }
